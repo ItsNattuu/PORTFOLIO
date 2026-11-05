@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayantika Bhattacharya | 2026 Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Retro/Pixel typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        .font-pixel { font-family: 'Press Start 2P', monospace; }
+        .font-retro { font-family: 'VT323', monospace; }
+        
+        body {
+            background-color: #0d061f;
+            background-image: 
+                radial-gradient(#ff3399 1.5px, transparent 1.5px), 
+                radial-gradient(#00ffcc 1.5px, #0d061f 1.5px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            overflow-x: hidden;
+            font-family: 'VT323', monospace;
+        }
+
+        /* CRT Scanline Overlay Effect */
+        .scanlines {
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%, 
+                rgba(0, 0, 0, 0.25) 50%
+            ), linear-gradient(
+                90deg,
+                rgba(255, 0, 0, 0.06),
+                rgba(0, 255, 0, 0.02),
+                rgba(0, 0, 255, 0.06)
+            );
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        /* Y2K Window & Button Styling */
+        .y2k-window {
+            background: #fcf5ff;
+            border: 4px solid #ff3399;
+            box-shadow: 8px 8px 0px #b873e8, 12px 12px 0px rgba(0,0,0,0.5);
+        }
+
+        .y2k-button {
+            background: #ff3399;
+            color: white;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            transition: all 0.1s ease;
+        }
+        .y2k-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000;
+            background: #ff1a8c;
+        }
+        .y2k-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        /* Floating animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px #ff3399, inset 0 0 20px #ff3399; }
+            50% { box-shadow: 0 0 40px #00ffcc, inset 0 0 30px #00ffcc; }
+        }
+        .arcade-screen {
+            animation: pulseGlow 4s infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-[#3a1c4a] relative selection:bg-[#ff3399] selection:text-white flex flex-col">
+
+    <!-- CRT Scanlines Overlay -->
+    <div class="fixed inset-0 z-50 scanlines opacity-40"></div>
+
+    <!-- MAIN APP CONTAINER - FULL SCREEN -->
+    <div id="app" class="w-full flex-1 flex flex-col justify-between p-2 sm:p-4 mx-auto relative z-10">
+        
+        <!-- HEADER / BROWSER OS BAR -->
+        <header class="w-full bg-[#e0d4fc] border-3 border-[#ff3399] rounded-t-xl px-4 py-3 flex justify-between items-center shadow-[4px_4px_0px_#ff3399]">
+            <div class="flex items-center gap-2">
+                <span class="w-4 h-4 bg-red-400 border border-black rounded-full inline-block cursor-pointer hover:bg-red-600"></span>
+                <span class="w-4 h-4 bg-yellow-300 border border-black rounded-full inline-block cursor-pointer hover:bg-yellow-500"></span>
+                <span class="w-4 h-4 bg-green-400 border border-black rounded-full inline-block cursor-pointer hover:bg-green-600"></span>
+                <span class="font-pixel text-xs sm:text-sm ml-3 text-[#ff3399] tracking-wider">NAYANTIKA.OS // LEVEL_07</span>
+            </div>
+            <div class="hidden md:flex text-sm bg-white px-4 py-1.5 border-2 border-black rounded shadow-[2px_2px_0px_#000] items-center gap-2">
+                <span class="text-[#ff3399] font-bold">🌐</span>
+                <span class="text-xs sm:text-sm font-mono">https://nayantika.portfolio2026.ai</span>
+            </div>
+            <div class="font-pixel text-xs sm:text-sm text-purple-900">
+                <span id="live-clock">12:34 PM</span>
+            </div>
+        </header>
+
+        <!-- DYNAMIC SCREEN VIEW CONTAINER -->
+        <main class="w-full flex-1 bg-[#fcf5ff]/95 backdrop-blur border-x-3 border-b-3 border-[#ff3399] p-4 sm:p-8 relative flex flex-col items-center justify-center">
+
+            <!-- ================= VIEW 1: HERO / TITLE SCREEN ================= -->
+            <section id="view-hero" class="w-full h-full flex flex-col items-center justify-center text-center py-4 my-auto relative">
+                <!-- Floating Y2K Background Elements (Super Star & Cyber Cloud) -->
+                <div class="absolute top-2 left-4 text-yellow-300 font-pixel text-xs animate-bounce opacity-80 flex items-center gap-1">⭐ [SUPER_STAR]</div>
+                <div class="absolute bottom-4 right-6 text-pink-400 font-pixel text-xs animate-pulse opacity-80 flex items-center gap-1">💖 [PIXEL_GIRL_Y2K]</div>
+                <div class="absolute top-1/3 right-8 text-yellow-400 text-2xl animate-float">⭐</div>
+                <div class="absolute bottom-1/4 left-10 text-cyan-300 font-pixel text-xs opacity-70">✨ [CYBER_CLOUD]</div>
+
+                <!-- Top Status Bar -->
+                <div class="w-full max-w-5xl flex justify-between items-center mb-6 px-6 py-3 bg-[#ffc0cb] border-3 border-black shadow-[6px_6px_0px_#000] z-10">
+                    <span class="font-pixel text-xs sm:text-sm text-[#800040]">AI & ML ENGINEER // LEVEL 03</span>
+                    <span class="font-pixel text-xs sm:text-sm text-[#800040]">PLAYER 01: ONLINE</span>
+                </div>
+
+                <!-- Big Arcade Title Box with Y2K Decor -->
+                <div class="w-full max-w-5xl arcade-screen bg-[#0a0518] border-4 border-[#ff3399] rounded-xl p-8 sm:p-12 relative overflow-hidden my-2 shadow-[12px_12px_0px_#b873e8] flex flex-col items-center z-10">
+                    
+                    <p class="font-pixel text-xs sm:text-sm text-cyan-300 mb-6 tracking-widest">[ WELCOME TO THE DIGITAL ARCADE ]</p>
+                    <h1 class="font-pixel text-4xl sm:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-[#ff3399] via-[#00ffcc] to-[#ffcc00] py-4 drop-shadow-[6px_6px_0px_rgba(0,0,0,0.9)]">
+                        2026 PORTFOLIO
+                    </h1>
+                    
+                    <div class="my-4 flex items-center justify-center gap-6">
+                        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-3 border-[#00ffcc] overflow-hidden bg-pink-900 shadow-[4px_4px_0px_#ff3399] flex items-center justify-center">
+                            <img src="me.jpeg" alt="Nayantika" class="w-full h-full object-cover">
+                        </div>
+                        <div class="text-left">
+                            <p class="font-pixel text-xs sm:text-sm text-pink-300">NAYANTIKA BHATTACHARYA</p>
+                            <p class="font-retro text-2xl sm:text-3xl text-cyan-200">AI & ML Engineer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 flex flex-wrap justify-center gap-4">
+                        <button onclick="switchView('desktop')" class="y2k-button font-pixel text-base sm:text-lg px-10 py-5 rounded-lg animate-float flex items-center gap-3">
+                            <span>[>]</span> PRESS START
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Footer Ticker Bar -->
+                <div class="w-full max-w-5xl mt-6 py-2 bg-[#ff3399] border-2 border-black shadow-[4px_4px_0px_#000] overflow-hidden whitespace-nowrap z-10">
+                    <div class="font-pixel text-xs sm:text-sm text-white flex justify-around animate-pulse">
+                        <span>★ AI & ML Engineer</span>
+                        <span>★ Y2K Star & Laptop Theme</span>
+                        <span>★ Arcade OS</span>
+                        <span>★ KIIT CSE</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= VIEW 2: DESKTOP OS & FOLDERS ================= -->
+            <section id="view-desktop" class="w-full h-full min-h-[70vh] relative hidden flex-col justify-between">
+                
+                <div class="w-full max-w-5xl mx-auto mb-4 flex justify-between items-center bg-[#ffc0cb] px-6 py-2 border-2 border-black shadow-[4px_4px_0px_#000]">
+                    <span class="font-pixel text-sm text-[#ff3399]">LEVEL 01: MEET THE PLAYER</span>
+                    <span class="font-pixel text-xs text-black">NAYANTIKA BHATTACHARYA // AI & ML ENGINEER</span>
+                </div>
+
+                <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto px-4">
+                    
+                    <!-- Left: Handheld Pink Nintendo DS / Laptop matching your reference with me.jpeg inside -->
+                    <div class="lg:col-span-5 flex flex-col items-center justify-center">
+                        <div class="w-full max-w-md bg-[#ff3399] border-4 border-black p-5 rounded-xl shadow-[12px_12px_0px_#000] relative">
+                            <!-- Top Screen of DS -->
+                            <div class="w-full bg-[#111] border-4 border-black rounded-lg p-3 mb-4 shadow-inner relative overflow-hidden">
+                                <div class="absolute top-2 left-2 text-yellow-400 text-sm animate-pulse z-20">⭐</div>
+                                <div class="absolute top-2 right-2 text-yellow-400 text-sm animate-bounce z-20">⭐</div>
+                                <div class="w-full h-48 sm:h-56 bg-[#1b4332] border-2 border-black rounded flex items-center justify-center overflow-hidden relative">
+                                    <img src="me.jpeg" alt="Nayantika Bhattacharya" class="w-full h-full object-cover">
+                                </div>
+                                <div class="absolute top-1/2 right-1 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+                            </div>
+                            <!-- Bottom Deck of DS (Touchpad Controls) -->
+                            <div class="w-full h-32 bg-[#ff66b2] border-3 border-black rounded-lg p-3 relative flex justify-between items-center shadow-inner">
+                                <div class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-pixel text-xl shadow-md border-2 border-[#ff99cc]">+</div>
+                                <div class="w-36 h-24 bg-[#ff99cc] border-3 border-black rounded-md shadow-inner flex flex-col justify-around p-2">
+                                    <div class="w-full h-1 bg-[#ff66b2] border-b border-black"></div>
+                                    <div class="w-full h-1 bg-[#ff66b2] border-b border-black"></div>
+                                    <div class="w-full h-1 bg-[#ff66b2]"></div>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <div class="w-7 h-7 bg-red-600 rounded-full border-2 border-black shadow"></div>
+                                    <div class="w-7 h-7 bg-blue-600 rounded-full border-2 border-black shadow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Interactive Window Modules -->
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div onclick="openModal('stats')" class="y2k-window p-6 cursor-pointer hover:scale-[1.02] transition-transform bg-white border-3 border-[#ff3399]">
+                            <h3 class="font-pixel text-sm text-[#ff3399] mb-2 flex items-center gap-2"><span>[>]</span> PLAYER STATS</h3>
+                            <p class="text-xl sm:text-2xl text-purple-900 leading-relaxed">B.Tech CSE (AI & ML) at KIIT Bhubaneswar. CGPA: 9.07. AI & ML Engineer.</p>
+                            <span class="inline-block mt-4 font-pixel text-xs bg-[#ff3399] text-white px-3 py-1 border border-black">VIEW BIO &gt;</span>
+                        </div>
+
+                        <div onclick="openModal('quests')" class="y2k-window p-6 cursor-pointer hover:scale-[1.02] transition-transform bg-white border-3 border-[#b873e8]">
+                            <h3 class="font-pixel text-sm text-[#b873e8] mb-2 flex items-center gap-2"><span>[>]</span> QUEST HISTORY</h3>
+                            <p class="text-xl sm:text-2xl text-purple-900 leading-relaxed">AI Intern at IIT Jammu, Control & Instrumentation Intern at NTPC BRBCL, E-Labs Coordinator.</p>
+                            <span class="inline-block mt-4 font-pixel text-xs bg-[#b873e8] text-white px-3 py-1 border border-black">VIEW EXP &gt;</span>
+                        </div>
+
+                        <div onclick="openModal('projects')" class="y2k-window p-6 cursor-pointer hover:scale-[1.02] transition-transform bg-white border-3 border-[#00ffcc]">
+                            <h3 class="font-pixel text-sm text-[#009988] mb-2 flex items-center gap-2"><span>[>]</span> PROJECTS INVENTORY</h3>
+                            <p class="text-xl sm:text-2xl text-purple-900 leading-relaxed">AI Event Manager (n8n), OpenAI PM Agent, Mangan-AI (Smart India Hackathon), Unity Games & DSP MATLAB.</p>
+                            <span class="inline-block mt-4 font-pixel text-xs bg-[#00aa88] text-white px-3 py-1 border border-black">VIEW PRJ &gt;</span>
+                        </div>
+
+                        <div onclick="openModal('skills')" class="y2k-window p-6 cursor-pointer hover:scale-[1.02] transition-transform bg-white border-3 border-[#ffcc00]">
+                            <h3 class="font-pixel text-sm text-[#cc9900] mb-2 flex items-center gap-2"><span>[>]</span> SKILL TREE</h3>
+                            <p class="text-xl sm:text-2xl text-purple-900 leading-relaxed">LLMs, RAG, OpenAI SDK, LangChain, Python, Java, Unity, DSP MATLAB, Automation & Control Systems.</p>
+                            <span class="inline-block mt-4 font-pixel text-xs bg-[#cc9900] text-white px-3 py-1 border border-black">VIEW SKILLS &gt;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full max-w-5xl mx-auto mt-6 py-2 bg-[#ff3399] border-2 border-black shadow-[4px_4px_0px_#000] flex justify-around text-white font-pixel text-xs sm:text-sm">
+                    <span>Missions</span>
+                    <span>★</span>
+                    <span>Missions</span>
+                    <span>★</span>
+                    <span>Missions</span>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- MODAL WINDOWS -->
+        
+        <!-- MODAL 1: PLAYER STATS -->
+        <div id="modal-stats" class="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+            <div class="y2k-window w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 relative">
+                <div class="bg-gradient-to-r from-[#ff3399] to-[#b873e8] text-white px-4 py-3 flex justify-between items-center mb-6 border-3 border-black shadow-md">
+                    <span class="font-pixel text-sm sm:text-base">LEVEL 01: PLAYER STATS</span>
+                    <button onclick="closeModal('stats')" class="px-3 py-1 bg-black hover:bg-red-600 font-bold border-2 border-white text-sm">X</button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center bg-white border-4 border-[#ff3399] p-8 shadow-[8px_8px_0px_#ff3399]">
+                    <div class="flex flex-col items-center">
+                        <div class="w-48 h-56 border-4 border-[#ff3399] p-3 bg-[#ffc0cb] shadow-[6px_6px_0px_#000] rounded-xl flex flex-col items-center">
+                            <div class="w-full bg-[#0a0518] text-[#00ffcc] font-pixel text-[10px] text-center py-1.5 mb-2 border-2 border-black">PLAYER 01</div>
+                            <div class="w-full h-40 border-2 border-black overflow-hidden bg-[#1b4332] flex items-center justify-center">
+                                <img src="me.jpeg" alt="Nayantika" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <p class="font-pixel text-xs mt-4 text-[#ff3399] text-center font-bold">NAYANTIKA</p>
+                    </div>
+
+                    <div class="md:col-span-2 space-y-4 text-2xl">
+                        <div class="bg-[#fcf5ff] border-3 border-black p-5 shadow-[4px_4px_0px_#000]">
+                            <h3 class="font-pixel text-sm text-[#ff3399] mb-2">EDUCATION & STATUS</h3>
+                            <p class="font-bold text-3xl">B.Tech - Computer Science Engineering (AI & ML)</p>
+                            <p class="text-purple-900 text-2xl">Kalinga Institute of Industrial Technology (KIIT), Bhubaneswar</p>
+                            <p class="text-xl font-bold text-green-700 mt-2">CGPA: 9.07 | AI & ML Engineer (2024-2028)</p>
+                        </div>
+                        <div class="bg-[#fcf5ff] border-3 border-black p-5 shadow-[4px_4px_0px_#000]">
+                            <h3 class="font-pixel text-sm text-[#ff3399] mb-2">PROFESSIONAL SUMMARY</h3>
+                            <p class="text-2xl leading-relaxed">AI & ML Engineer with hands-on experience in LLM applications, RAG pipelines, OpenAI SDK integrations, and automated intelligent agent workflows.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-between items-center">
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/in/nayantika-bhattacharya-b0533b321/" target="_blank" class="y2k-button font-pixel text-xs sm:text-sm px-6 py-3">LINKEDIN</a>
+                        <a href="https://github.com/ItsNattuu" target="_blank" class="y2k-button font-pixel text-xs sm:text-sm px-6 py-3">GITHUB</a>
+                    </div>
+                    <button onclick="closeModal('stats')" class="border-3 border-black px-8 py-3 bg-white font-pixel text-xs sm:text-sm hover:bg-gray-100">CLOSE</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL 2: QUEST HISTORY -->
+        <div id="modal-quests" class="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+            <div class="y2k-window w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 relative">
+                <div class="bg-gradient-to-r from-[#b873e8] to-[#ff3399] text-white px-4 py-3 flex justify-between items-center mb-6 border-3 border-black shadow-md">
+                    <span class="font-pixel text-sm sm:text-base">LEVEL 02: QUEST HISTORY (EXPERIENCE)</span>
+                    <button onclick="closeModal('quests')" class="px-3 py-1 bg-black hover:bg-red-600 font-bold border-2 border-white text-sm">X</button>
+                </div>
+                
+                <div class="space-y-6 text-2xl">
+                    <div class="bg-white border-4 border-[#b873e8] p-6 shadow-[6px_6px_0px_#b873e8]">
+                        <div class="flex justify-between items-start flex-wrap gap-2">
+                            <h3 class="font-bold text-2xl sm:text-3xl text-[#ff3399]">AI (LLMs, GenAI, Automation & AI Agents) Intern</h3>
+                            <span class="bg-yellow-200 border-2 border-black px-3 py-1 text-xs font-pixel">Jun - Aug 2026</span>
+                        </div>
+                        <p class="text-purple-900 font-bold text-2xl">Indian Institute of Technology (IIT) Jammu | Jammu, India</p>
+                        <ul class="list-disc list-inside mt-3 space-y-2 text-2xl leading-relaxed">
+                            <li>Built an automated event management system using n8n, streamlining scheduling and workflow coordination without manual intervention.</li>
+                            <li>Developed an AI-Powered Product Manager Agent using the OpenAI SDK as an autonomous agent handling planning and decision-support workflows.</li>
+                            <li>Designed multiple end-to-end automation workflows including Discord and Telegram bots for real-time messaging, task triggers, and cross-platform integrations.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white border-4 border-[#b873e8] p-6 shadow-[6px_6px_0px_#b873e8]">
+                        <div class="flex justify-between items-start flex-wrap gap-2">
+                            <h3 class="font-bold text-2xl sm:text-3xl text-[#ff3399]">Control & Instrumentation Intern</h3>
+                            <span class="bg-yellow-200 border-2 border-black px-3 py-1 text-xs font-pixel">May 2026</span>
+                        </div>
+                        <p class="text-purple-900 font-bold text-2xl">NTPC BRBCL | Bihar, India</p>
+                        <ul class="list-disc list-inside mt-3 space-y-2 text-2xl leading-relaxed">
+                            <li>Observed and documented automation and process monitoring systems within the Control & Instrumentation department in a high-security industrial environment.</li>
+                            <li>Studied control loop architecture, sensor networks, and instrumentation used in power plant operations at scale.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white border-4 border-[#b873e8] p-6 shadow-[6px_6px_0px_#b873e8]">
+                        <div class="flex justify-between items-start flex-wrap gap-2">
+                            <h3 class="font-bold text-2xl sm:text-3xl text-[#ff3399]">Student Associate Coordinator</h3>
+                            <span class="bg-yellow-200 border-2 border-black px-3 py-1 text-xs font-pixel">May 2025 - Jan 2026</span>
+                        </div>
+                        <p class="text-purple-900 font-bold text-2xl">E-Labs Student Society, KIIT | Bhubaneswar, India</p>
+                        <ul class="list-disc list-inside mt-3 space-y-2 text-2xl leading-relaxed">
+                            <li>Scaled society membership and engagement by 93% across a 500+ member community by executing structured marketing campaigns.</li>
+                            <li>Directed end-to-end event planning, sponsorship outreach, and cross-campus operations.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-right">
+                    <button onclick="closeModal('quests')" class="y2k-button font-pixel text-xs sm:text-sm px-8 py-3">BACK TO DESKTOP</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL 3: PROJECTS INVENTORY -->
+        <div id="modal-projects" class="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+            <div class="y2k-window w-full max-w-5xl max-h-[90vh] overflow-y-auto p-8 relative">
+                <div class="bg-gradient-to-r from-[#66ffcc] to-[#ff3399] text-black px-4 py-3 flex justify-between items-center mb-6 border-3 border-black shadow-md font-bold">
+                    <span class="font-pixel text-sm sm:text-base">LEVEL 03: PROJECTS INVENTORY</span>
+                    <button onclick="closeModal('projects')" class="px-3 py-1 bg-black hover:bg-red-600 text-white font-bold border-2 border-black text-sm">X</button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-2xl">
+                    <div class="border-4 border-[#ff3399] p-6 bg-white shadow-[6px_6px_0px_#ff3399]">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-bold text-2xl sm:text-3xl text-[#ff3399]">AI-Powered Event Manager</h4>
+                            <span class="text-xs font-pixel bg-pink-100 px-3 py-1 border-2 border-black">IIT Jammu</span>
+                        </div>
+                        <p class="text-2xl leading-relaxed">Built an automated event management system using n8n, streamlining scheduling, notifications, and workflow coordination without manual intervention.</p>
+                    </div>
+
+                    <div class="border-4 border-[#ff3399] p-6 bg-white shadow-[6px_6px_0px_#ff3399]">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-bold text-2xl sm:text-3xl text-[#ff3399]">Product Manager Agent</h4>
+                            <span class="text-xs font-pixel bg-pink-100 px-3 py-1 border-2 border-black">OpenAI SDK</span>
+                        </div>
+                        <p class="text-2xl leading-relaxed">Developed an autonomous agent using the OpenAI SDK to handle product management tasks, including planning and decision-support workflows.</p>
+                    </div>
+
+                    <div class="border-4 border-[#ff3399] p-6 bg-white shadow-[6px_6px_0px_#ff3399]">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-bold text-2xl sm:text-3xl text-[#ff3399]">Mangan-AI</h4>
+                            <span class="text-xs font-pixel bg-pink-100 px-3 py-1 border-2 border-black">Smart India Hackathon</span>
+                        </div>
+                        <p class="text-2xl leading-relaxed">Built an AI/ML-based solution addressing the core problem statement of identifying manganese reserves and overcoming production shortfalls.</p>
+                    </div>
+
+                    <div class="border-4 border-[#ff3399] p-6 bg-white shadow-[6px_6px_0px_#ff3399]">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-bold text-2xl sm:text-3xl text-[#ff3399]">Unity Game Development</h4>
+                            <span class="text-xs font-pixel bg-pink-100 px-3 py-1 border-2 border-black">Game Dev</span>
+                        </div>
+                        <p class="text-2xl leading-relaxed">Built Flappy Bird and an Infinite Runner game in Unity, applying core game mechanics, physics-based movement, and collision handling.</p>
+                    </div>
+
+                    <div class="border-4 border-[#ff3399] p-6 bg-white shadow-[6px_6px_0px_#ff3399] md:col-span-2">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-bold text-2xl sm:text-3xl text-[#ff3399]">Signal Processing & Automation Bots</h4>
+                            <span class="text-xs font-pixel bg-pink-100 px-3 py-1 border-2 border-black">MATLAB / n8n</span>
+                        </div>
+                        <p class="text-2xl leading-relaxed">Implemented pitch-and-time-shifting using MUSIC algorithm and FIR-filter noise reduction on mobile sensor data in MATLAB, alongside end-to-end Discord and Telegram automation bots.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-between items-center">
+                    <a href="https://github.com/ItsNattuu" target="_blank" class="y2k-button font-pixel text-xs sm:text-sm px-6 py-3">VIEW GITHUB REPOS</a>
+                    <button onclick="closeModal('projects')" class="y2k-button font-pixel text-xs sm:text-sm px-8 py-3">BACK</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL 4: SKILL TREE -->
+        <div id="modal-skills" class="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+            <div class="y2k-window w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 relative">
+                <div class="bg-gradient-to-r from-[#ffcc00] to-[#ff3399] text-black px-4 py-3 flex justify-between items-center mb-6 border-3 border-black shadow-md font-bold">
+                    <span class="font-pixel text-sm sm:text-base">LEVEL 04: SKILL TREE</span>
+                    <button onclick="closeModal('skills')" class="px-3 py-1 bg-black hover:bg-red-600 text-white font-bold border-2 border-black text-sm">X</button>
+                </div>
+                
+                <div class="space-y-6 bg-white border-4 border-[#ffcc00] p-8 shadow-[8px_8px_0px_#ffcc00] text-2xl">
+                    <div>
+                        <h4 class="font-pixel text-sm text-[#ff3399] mb-2">AI & DEVELOPMENT:</h4>
+                        <p class="text-2xl leading-relaxed">LLMs, RAG pipelines, OpenAI SDK, LangChain, Hugging Face, NLP, Generative AI, Prompt Engineering, n8n automation, Python, Java, C, C#</p>
+                    </div>
+                    <hr class="border-dashed border-gray-400">
+                    <div>
+                        <h4 class="font-pixel text-sm text-[#ff3399] mb-2">GAME DEV & ENGINEERING:</h4>
+                        <p class="text-2xl leading-relaxed">Unity, Physics engines, Game mechanics & collision handling, MATLAB (Signal processing & DSP)</p>
+                    </div>
+                    <hr class="border-dashed border-gray-400">
+                    <div>
+                        <h4 class="font-pixel text-sm text-[#ff3399] mb-2">OPS & INDUSTRIAL:</h4>
+                        <p class="text-2xl leading-relaxed">Industrial automation, Control & Instrumentation systems, Process monitoring & documentation</p>
+                    </div>
+                    <hr class="border-dashed border-gray-400">
+                    <div>
+                        <h4 class="font-pixel text-sm text-[#ff3399] mb-2">RELEVANT COURSEWORK:</h4>
+                        <p class="text-2xl leading-relaxed">Data Structures & Algorithms (DAA), Theory of Computation, OOP (Java), Database Management, Artificial Intelligence, Computer Networks, Software Engineering, Image Processing (IPA), Speech and Video Processing (SVP)</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-right">
+                    <button onclick="closeModal('skills')" class="y2k-button font-pixel text-xs sm:text-sm px-8 py-3">BACK</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM TASKBAR -->
+        <footer class="w-full bg-[#c0b0ed] border-3 border-t-0 border-[#ff3399] rounded-b-xl px-4 py-3 flex justify-between items-center shadow-[4px_4px_0px_#ff3399] relative z-20">
+            <div class="relative">
+                <button onclick="toggleStartMenu()" class="y2k-button px-5 py-2 text-sm sm:text-base font-pixel flex items-center gap-2">
+                    <span>[+]</span> START
+                </button>
+                
+                <!-- Start Menu Popup -->
+                <div id="start-menu" class="absolute bottom-14 left-0 w-72 y2k-window p-3 hidden flex-col gap-2 z-50 bg-white shadow-2xl">
+                    <div class="bg-[#ff3399] text-white px-3 py-1.5 font-pixel text-xs">NAYANTIKA.OS MENU</div>
+                    <button onclick="switchView('hero'); toggleStartMenu();" class="text-left px-4 py-2 hover:bg-[#ff3399] hover:text-white text-2xl font-bold flex items-center gap-2">Title Screen</button>
+                    <button onclick="switchView('desktop'); toggleStartMenu();" class="text-left px-4 py-2 hover:bg-[#ff3399] hover:text-white text-2xl font-bold flex items-center gap-2">Desktop OS</button>
+                    <hr class="border-black">
+                    <button onclick="openModal('stats'); toggleStartMenu();" class="text-left px-4 py-2 hover:bg-[#ff3399] hover:text-white text-2xl font-bold flex items-center gap-2">Player Stats</button>
+                    <button onclick="openModal('quests'); toggleStartMenu();" class="text-left px-4 py-2 hover:bg-[#ff3399] hover:text-white text-2xl font-bold flex items-center gap-2">Quest History</button>
+                    <button onclick="openModal('projects'); toggleStartMenu();" class="text-left px-4 py-2 hover:bg-[#ff3399] hover:text-white text-2xl font-bold flex items-center gap-2">Projects Inventory</button>
+                    <button onclick="openModal('skills'); toggleStartMenu();" class="text-left px-4 py-2 hover:bg-[#ff3399] hover:text-white text-2xl font-bold flex items-center gap-2">Skill Tree</button>
+                    <hr class="border-black">
+                    <a href="https://www.linkedin.com/in/nayantika-bhattacharya-b0533b321/" target="_blank" class="text-left px-4 py-2 hover:bg-[#ff3399] hover:text-white text-2xl font-bold flex items-center gap-2">LinkedIn Profile</a>
+                    <a href="https://github.com/ItsNattuu" target="_blank" class="text-left px-4 py-2 hover:bg-[#ff3399] hover:text-white text-2xl font-bold flex items-center gap-2">GitHub Profile</a>
+                </div>
+            </div>
+
+            <!-- Quick Taskbar Window Tabs -->
+            <div class="hidden sm:flex gap-3">
+                <button onclick="switchView('hero')" class="bg-white px-4 py-1.5 border-2 border-black text-xs sm:text-sm font-pixel shadow-sm hover:bg-pink-100">home</button>
+                <button onclick="openModal('projects')" class="bg-white px-4 py-1.5 border-2 border-black text-xs sm:text-sm font-pixel shadow-sm hover:bg-pink-100">projects</button>
+            </div>
+
+            <!-- Live Winamp / Music Ticker Widget -->
+            <div class="text-sm bg-white px-4 py-1.5 border-2 border-black flex items-center gap-3 shadow-[2px_2px_0px_#000]">
+                <span class="animate-pulse text-pink-600">&gt;&gt;</span>
+                <span class="font-mono text-xs sm:text-sm">Now Playing: training_llm_weights.mp3</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Interactive Logic -->
+    <script>
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('live-clock').innerText = hours + ':' + minutes + ' ' + ampm;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        function switchView(viewName) {
+            const hero = document.getElementById('view-hero');
+            const desktop = document.getElementById('view-desktop');
+            
+            if (viewName === 'hero') {
+                hero.classList.remove('hidden');
+                hero.classList.add('flex');
+                desktop.classList.add('hidden');
+                desktop.classList.remove('flex');
+            } else if (viewName === 'desktop') {
+                hero.classList.add('hidden');
+                hero.classList.remove('flex');
+                desktop.classList.remove('hidden');
+                desktop.classList.add('flex');
+            }
+        }
+
+        function openModal(modalId) {
+            closeAllModals();
+            const modal = document.getElementById('modal-' + modalId);
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById('modal-' + modalId);
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function closeAllModals() {
+            ['stats', 'quests', 'projects', 'skills'].forEach(id => {
+                const m = document.getElementById('modal-' + id);
+                if (m) {
+                    m.classList.add('hidden');
+                    m.classList.remove('flex');
+                }
+            });
+        }
+
+        function toggleStartMenu() {
+            const menu = document.getElementById('start-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        }
+
+        window.addEventListener('click', function(e) {
+            const menu = document.getElementById('start-menu');
+            const startBtn = e.target.closest('button');
+            if (!menu.contains(e.target) && (!startBtn || !startBtn.innerText.includes('START'))) {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        });
+    </script>
+</body>
+</html>
